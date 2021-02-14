@@ -4,7 +4,7 @@ const assert = require('assert');
 
 dotenv.config();
 
-const { PORT, HOST, HOST_URL, SQL_USER, SQL_PASSWORD, SQL_DATABASE, SQL_SERVER } = process.env;
+const { PORT, HOST, HOST_URL, SQL_USER, SQL_PASSWORD, SQL_DATABASE, SQL_SERVER, SQL_PORT } = process.env;
 
 const sqlEncrypt = process.env.ENCRYPT === "true";
 
@@ -20,6 +20,7 @@ module.exports = {
         database: SQL_DATABASE,
         user: SQL_USER,
         password: SQL_PASSWORD,
+        port: parseInt(SQL_PORT,10)
         // connectionTimeout: 150000,
         // options: {
         //     encrypt: sqlEncrypt,
