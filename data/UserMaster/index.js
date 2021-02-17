@@ -51,6 +51,14 @@ const AddUser = async (UserData) => {
             .input('Password', sql.NVarChar(20), UserData[0].Password)
             .query(sqlQueries.AddUser);
         //transaction.commit();
+
+        if (UserData[0].RefId != null && UserData[0].RefId != "") {
+            const UpdateRefId = await pool.request()
+                .input('UserId', sql.Int, AddUser.recordset[0].USERID)
+                .input('RefId', sql.NVarChar(50), UserData[0].RefId + '.' + AddUser.recordset[0].USERID)
+                .query(sqlQueries.UpdateRefId);
+        }
+
         let OutObject = {
             flag: true,
             mesg: "Insert Successfully..!!",
@@ -78,7 +86,7 @@ const ValidLogin = async (LoginData) => {
                 mesg: "Login Successfully..!!",
                 recordset: ValidUser.recordset
             }
-        }else{
+        } else {
             OutObject = {
                 flag: false,
                 mesg: "UserName or Password Is Incorrect..!!",

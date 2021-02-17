@@ -23,7 +23,7 @@ INSERT INTO [dbo].[UserMaster]
            ,@Password);
 
 SELECT SCOPE_IDENTITY() AS USERID
-
+ 
 
 
 
