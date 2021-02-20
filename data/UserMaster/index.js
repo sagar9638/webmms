@@ -102,13 +102,14 @@ const ValidLogin = async (LoginData) => {
 
 const MembersHierarchy = async (ConditionData) => {
     try {
+
         let pool = await sql.connect(config.sql);
         const sqlQueries = await utils.loadSqlQueries('UserMaster');
         const ValidUser = await pool.request()
-            .input('p_Condition', sql.NVarChar(50), '1=1')
+            .input('p_Condition', sql.NVarChar(50), "1=1")
             .query(sqlQueries.MembersHierarchy);
 
-        let OutObject = {}
+            let OutObject = {}
         if (ValidUser.recordset.length != 0) {
             OutObject = {
                 flag: true,
