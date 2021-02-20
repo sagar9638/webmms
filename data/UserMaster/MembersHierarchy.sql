@@ -1,5 +1,5 @@
 select 
-	  DENSE_RANK() OVER ( ORDER BY a.perentId) pid
+	  CAST(DENSE_RANK() OVER ( ORDER BY a.perentId) AS int) pid
 	  ,a.Id as id
       ,a.RefId
       ,a.Name as name
