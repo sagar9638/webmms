@@ -100,13 +100,13 @@ const ValidLogin = async (LoginData) => {
 }
 
 
-const MembersHierarchy = async (ConditionData) => {
+const MembersHierarchy = async (UserRefId) => {
     try {
 
         let pool = await sql.connect(config.sql);
         const sqlQueries = await utils.loadSqlQueries('UserMaster');
         const ValidUser = await pool.request()
-            .input('p_Condition', sql.NVarChar(50), "1=1")
+            .input('p_Condition', sql.NVarChar(50), UserRefId[0].RefId + '%')
             .query(sqlQueries.MembersHierarchy);
 
             let OutObject = {}

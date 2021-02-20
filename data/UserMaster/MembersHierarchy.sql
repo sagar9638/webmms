@@ -14,5 +14,5 @@ select
 from (
 		select  *
 				,LEFT(RefId, LEN(RefId) - CHARINDEX('.', REVERSE(RefId))) perentId  
-		from	UserMaster --Where @p_Condition
+		from	UserMaster Where RefId like @p_Condition
 	 ) a 
