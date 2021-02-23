@@ -33,6 +33,16 @@ const ValidUserLogin = async (req, res, next) =>{
     }
 }
 
+const ValidUserNameCheck = async (req, res, next) =>{
+    try {
+        const reqData = req.body;
+        const _ValidUserLogin = await UserMasterData.ValidUserNameCheck(reqData);
+        res.send(_ValidUserLogin);
+    } catch (error) {
+        res.status(400).send(error.message);
+    }
+}
+
 const MembersHierarchy = async (req, res, next) =>{
     try {
         const reqData = req.body;
@@ -68,5 +78,6 @@ module.exports = {
     getUsers,
     AddUser,
     ValidUserLogin,
-    MembersHierarchy
+    MembersHierarchy,
+    ValidUserNameCheck
 }

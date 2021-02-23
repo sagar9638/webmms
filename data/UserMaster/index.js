@@ -99,6 +99,34 @@ const ValidLogin = async (LoginData) => {
     }
 }
 
+const ValidUserNameCheck = async (LoginData) => {
+    try {
+        let pool = await sql.connect(config.sql);
+        const sqlQueries = await utils.loadSqlQueries('UserMaster');
+        const _ValidUserNameCheck = await pool.request()
+            .input('p_UserName', sql.NVarChar(50), LoginData[0].p_UserName)
+            .query(sqlQueries.ValidUserNameCheck);
+        console.log('_ValidUserNameCheck', _ValidUserNameCheck.recordset.length);
+        let OutObject = {}
+        if (_ValidUserNameCheck.recordset.length != 0) {
+            OutObject = {
+                flag: false,
+                mesg: "Username already exists..!!",
+                recordset: _ValidUserNameCheck
+            }
+        } else {
+            OutObject = {
+                flag: true,
+                mesg: "",
+                recordset: _ValidUserNameCheck.recordset
+            }
+        }
+        return OutObject;
+    } catch (error) {
+        return error.message;
+    }
+}
+
 
 const MembersHierarchy = async (UserRefId) => {
     try {
@@ -109,7 +137,7 @@ const MembersHierarchy = async (UserRefId) => {
             .input('p_Condition', sql.NVarChar(50), UserRefId[0].RefId + '%')
             .query(sqlQueries.MembersHierarchy);
 
-            let OutObject = {}
+        let OutObject = {}
         if (ValidUser.recordset.length != 0) {
             OutObject = {
                 flag: true,
@@ -134,5 +162,6 @@ module.exports = {
     getUsers,
     AddUser,
     ValidLogin,
-    MembersHierarchy
+    MembersHierarchy,
+    ValidUserNameCheck
 }
