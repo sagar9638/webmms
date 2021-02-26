@@ -6,7 +6,7 @@ const router = express.Router();
 
 const {getUsers,AddUser,ValidUserLogin,MembersHierarchy,ValidUserNameCheck} = UserMasterController;
 
-router.get('/GetUser',getUsers);
+router.post('/GetUser',getUsers);
 router.post('/AddUser',AddUser);
 router.post('/ValidLogin',ValidUserLogin);
 router.post('/MembersHierarchy',MembersHierarchy);
