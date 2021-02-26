@@ -9,7 +9,8 @@ INSERT INTO [dbo].[UserMaster]
            ,[EntUser]
            ,[EntDate]
            ,[UserName]
-           ,[Password])
+           ,[Password]
+           ,[ConfirmFlag])
      VALUES
            (@RefId
            ,@Name
@@ -20,7 +21,8 @@ INSERT INTO [dbo].[UserMaster]
            ,@EntUser
            ,GETDATE()
            ,@UserName
-           ,@Password);
+           ,@Password
+           ,'N');
 
 SELECT SCOPE_IDENTITY() AS USERID
  

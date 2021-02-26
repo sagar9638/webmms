@@ -5,11 +5,13 @@ const config = require('../../config');
 const sql = require('mssql');
 
 
-const getUsers = async () => {
+const getUsers = async (p_Condition) => {
     try {
         let pool = await sql.connect(config.sql);
         const sqlQueries = await utils.loadSqlQueries('UserMaster');
-        const list = await pool.request().query(sqlQueries.GetUserMaster);
+        const list = await pool.request()
+        .input('p_Condition', sql.NVarChar(sql.MAX), p_Condition)
+        .query(sqlQueries.GetUserMaster);
         return list.recordset;
     } catch (error) {
         return error.message;

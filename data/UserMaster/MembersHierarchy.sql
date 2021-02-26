@@ -13,8 +13,11 @@ select
       ,CONVERT(varchar,a.EntDate,105) as EntDate
       ,a.UserName
       ,'https://cdn.balkan.app/shared/1.jpg' as img
+      ,a.ConfirmFlag
+      ,a.ConfirmUser
+      ,a.ConfirmDate
 from (
 		select  *
 				,LEFT(RefId, LEN(RefId) - CHARINDEX('.', REVERSE(RefId))) perentId  
-		from	UserMaster Where RefId like @p_Condition
+		from	UserMaster Where RefId like @p_Condition And ConfirmFlag = 'Y'
 	 ) a 
