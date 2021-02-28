@@ -50,6 +50,7 @@ const UpdDesignationData = async (ReqData) => {
         let pool = await sql.connect(config.sql);
         const sqlQueries = await utils.loadSqlQueries('DesignationMaster');
         const UpdData = await pool.request()
+            .input('p_DId', sql.NVarChar(80), ReqData[0].p_DId)
             .input('p_DName', sql.NVarChar(80), ReqData[0].p_DName)
             .input('p_DShortName', sql.NVarChar(30), ReqData[0].p_DShortName)
             .input('p_DAchiveCount', sql.Int, ReqData[0].p_DAchiveCount)
