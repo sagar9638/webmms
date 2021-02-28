@@ -19,6 +19,7 @@ const GetDesignationData = async (p_Condition) => {
 }
 
 
+
 const AddDesignationData = async (ReqData) => {
     try {
         let pool = await sql.connect(config.sql);

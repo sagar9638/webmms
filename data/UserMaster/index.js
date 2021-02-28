@@ -18,6 +18,7 @@ const getUsers = async (p_Condition) => {
     }
 }
 
+
 const getRegistrationById = async (ID) => {
     try {
         let pool = await sql.connect(config.sql);
