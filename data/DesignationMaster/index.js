@@ -90,7 +90,6 @@ const DeleteDesignationData = async (ReqData) => {
     }
 }
 
-
 module.exports = {
     GetDesignationData,
     AddDesignationData,

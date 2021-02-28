@@ -160,10 +160,32 @@ const MembersHierarchy = async (UserRefId) => {
 }
 
 
+const UpdConfirmFlag = async (ReqData) => {
+    try {
+        let pool = await sql.connect(config.sql);
+        const sqlQueries = await utils.loadSqlQueries('UserMaster');
+        const UpdData = await pool.request()
+            .input('p_ConfirmFlag', sql.VarChar, ReqData[0].p_ConfirmFlag)
+            .input('p_ConfirmUser', sql.VarChar, ReqData[0].p_ConfirmUser)
+            .input('p_Id', sql.Int, ReqData[0].p_Id)
+            .query(sqlQueries.UserConfirmationFlagUpdate);
+
+        let OutObject = {
+            flag: true,
+            mesg: "Confirm User Successfully..!!",
+            recordset: UpdData.recordset
+        }
+        return OutObject;
+    } catch (error) {
+        return error.message;
+    }
+}
+
 module.exports = {
     getUsers,
     AddUser,
     ValidLogin,
     MembersHierarchy,
-    ValidUserNameCheck
+    ValidUserNameCheck,
+    UpdConfirmFlag
 }

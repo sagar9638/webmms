@@ -55,6 +55,18 @@ const MembersHierarchy = async (req, res, next) =>{
 }
 
 
+const UpdConfirmFlag = async (req, res, next) =>{
+    try {
+        const reqData = req.body;
+        const ResData = await UserMasterData.UpdConfirmFlag(reqData);
+        res.send(ResData);
+    } catch (error) {
+        res.status(400).send(error.message);
+        
+    }
+}
+
+
 // const getRegistrationById = async (req, res, next) =>{
 //     try {
 //         const ID = req.params.ID;
@@ -80,5 +92,6 @@ module.exports = {
     AddUser,
     ValidUserLogin,
     MembersHierarchy,
-    ValidUserNameCheck
+    ValidUserNameCheck,
+    UpdConfirmFlag
 }
