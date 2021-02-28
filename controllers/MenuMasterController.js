@@ -16,7 +16,7 @@ const GetMenuData = async (req, res, next) =>{
 const AddMenuData = async (req, res, next) =>{
     try {
         const reqData = req.body;
-        const ResData = await UserMasterData.AddMenuData(reqData);
+        const ResData = await MenuMasterData.AddMenuData(reqData);
         res.send(ResData);
     } catch (error) {
         res.status(400).send(error.message);
@@ -27,7 +27,7 @@ const AddMenuData = async (req, res, next) =>{
 const UpdMenuData = async (req, res, next) =>{
     try {
         const reqData = req.body;
-        const ResData = await UserMasterData.UpdMenuData(reqData);
+        const ResData = await MenuMasterData.UpdMenuData(reqData);
         res.send(ResData);
     } catch (error) {
         res.status(400).send(error.message);
@@ -38,11 +38,10 @@ const UpdMenuData = async (req, res, next) =>{
 const DeleteMenuData = async (req, res, next) =>{
     try {
         const reqData = req.body;
-        const ResData = await UserMasterData.DeleteMenuData(reqData);
+        const ResData = await MenuMasterData.DeleteMenuData(reqData);
         res.send(ResData);
     } catch (error) {
         res.status(400).send(error.message);
-        
     }
 }
 

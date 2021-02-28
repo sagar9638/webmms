@@ -16,7 +16,7 @@ const GetDesignationData = async (req, res, next) =>{
 const AddDesignationData = async (req, res, next) =>{
     try {
         const reqData = req.body;
-        const ResData = await UserMasterData.AddDesignationData(reqData);
+        const ResData = await DesignationMasterData.AddDesignationData(reqData);
         res.send(ResData);
     } catch (error) {
         res.status(400).send(error.message);
@@ -27,7 +27,7 @@ const AddDesignationData = async (req, res, next) =>{
 const UpdDesignationData = async (req, res, next) =>{
     try {
         const reqData = req.body;
-        const ResData = await UserMasterData.UpdDesignationData(reqData);
+        const ResData = await DesignationMasterData.UpdDesignationData(reqData);
         res.send(ResData);
     } catch (error) {
         res.status(400).send(error.message);
@@ -38,7 +38,7 @@ const UpdDesignationData = async (req, res, next) =>{
 const DeleteDesignationData = async (req, res, next) =>{
     try {
         const reqData = req.body;
-        const ResData = await UserMasterData.DeleteDesignationData(reqData);
+        const ResData = await DesignationMasterData.DeleteDesignationData(reqData);
         res.send(ResData);
     } catch (error) {
         res.status(400).send(error.message);
