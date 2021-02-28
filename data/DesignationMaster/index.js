@@ -19,7 +19,7 @@ const GetDesignationData = async (p_Condition) => {
 }
 
 
-const AddDesignationMaster = async (ReqData) => {
+const AddDesignationData = async (ReqData) => {
     try {
         let pool = await sql.connect(config.sql);
         const sqlQueries = await utils.loadSqlQueries('DesignationMaster');
@@ -45,7 +45,7 @@ const AddDesignationMaster = async (ReqData) => {
 }
 
 
-const UpdDesignationMaster = async (ReqData) => {
+const UpdDesignationData = async (ReqData) => {
     try {
         let pool = await sql.connect(config.sql);
         const sqlQueries = await utils.loadSqlQueries('DesignationMaster');
@@ -70,7 +70,7 @@ const UpdDesignationMaster = async (ReqData) => {
     }
 }
 
-const DeleteDesignationMaster = async (ReqData) => {
+const DeleteDesignationData = async (ReqData) => {
     try {
         let pool = await sql.connect(config.sql);
         const sqlQueries = await utils.loadSqlQueries('DesignationMaster');
@@ -92,7 +92,7 @@ const DeleteDesignationMaster = async (ReqData) => {
 
 module.exports = {
     GetDesignationData,
-    AddDesignationMaster,
-    UpdDesignationMaster,
-    DeleteDesignationMaster
+    AddDesignationData,
+    UpdDesignationData,
+    DeleteDesignationData
 }

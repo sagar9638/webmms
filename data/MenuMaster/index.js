@@ -19,7 +19,7 @@ const GetMenuData = async (p_Condition) => {
 }
 
 
-const AddMenuMaster = async (ReqData) => {
+const AddMenuData = async (ReqData) => {
     try {
         let pool = await sql.connect(config.sql);
         const sqlQueries = await utils.loadSqlQueries('MenuMaster');
@@ -47,7 +47,7 @@ const AddMenuMaster = async (ReqData) => {
 }
 
 
-const UpdMenuMaster = async (ReqData) => {
+const UpdMenuData = async (ReqData) => {
     try {
         let pool = await sql.connect(config.sql);
         const sqlQueries = await utils.loadSqlQueries('MenuMaster');
@@ -75,7 +75,7 @@ const UpdMenuMaster = async (ReqData) => {
     }
 }
 
-const DeleteMenuMaster = async (ReqData) => {
+const DeleteMenuData = async (ReqData) => {
     try {
         let pool = await sql.connect(config.sql);
         const sqlQueries = await utils.loadSqlQueries('MenuMaster');
@@ -97,7 +97,7 @@ const DeleteMenuMaster = async (ReqData) => {
 
 module.exports = {
     GetMenuData,
-    AddMenuMaster,
-    UpdMenuMaster,
-    DeleteMenuMaster
+    AddMenuData,
+    UpdMenuData,
+    DeleteMenuData
 }
