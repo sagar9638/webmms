@@ -1,6 +1,11 @@
+DECLARE @DId NVARCHAR(50),@PERENTID NVARCHAR(50),@ConnectUserCount INT, @ADId NVARCHAR(50)
+
+SELECT @DId = DId FROM	DesignationMaster
+WHERE DFix = 'NewUser';
 
 INSERT INTO [dbo].[UserMaster]
-           ([RefId]
+           (
+            [RefId]
            ,[Name]
            ,[City]
            ,[DOB]
@@ -10,9 +15,13 @@ INSERT INTO [dbo].[UserMaster]
            ,[EntDate]
            ,[UserName]
            ,[Password]
-           ,[ConfirmFlag])
+           ,[ConfirmFlag]
+           ,[DId]
+           ,[ConnectUserCount]
+           )
      VALUES
-           (@RefId
+           (
+            @RefId
            ,@Name
            ,@City
            ,@DOB 
@@ -22,10 +31,9 @@ INSERT INTO [dbo].[UserMaster]
            ,GETDATE()
            ,@UserName
            ,@Password
-           ,'N');
+           ,'N'
+           ,@DId
+           ,0
+           );
 
 SELECT SCOPE_IDENTITY() AS USERID
- 
-
-
-
