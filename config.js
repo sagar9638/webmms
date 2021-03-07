@@ -23,7 +23,7 @@ module.exports = {
         port: parseInt(SQL_PORT,10),
         connectionTimeout: 150000,
         options: {
-            encrypt: sqlEncrypt,
+            encrypt: SQL_ENCRYPT,
             enableArithAbort: true,
             instanceName: 'sqlexpress'
         }
