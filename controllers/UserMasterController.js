@@ -2,39 +2,42 @@
 
 const UserMasterData = require('../data/UserMaster');
 
-const getUsers = async (req, res, next) =>{
+const getUsers = async (req, res, next) => {
     try {
         const reqData = req.body[0].p_Condition;
         const getUserData = await UserMasterData.getUsers(reqData);
         res.send(getUserData);
     } catch (error) {
         res.status(400).send(error.message);
-        
+
     }
 }
 
-const AddUser = async (req, res, next) =>{
+const AddUser = async (req, res, next) => {
     try {
         const reqData = req.body;
         const CreateUserData = await UserMasterData.AddUser(reqData);
         res.send(CreateUserData);
     } catch (error) {
         res.status(400).send(error.message);
-        
+
     }
 }
 
-const ValidUserLogin = async (req, res, next) =>{
+const ValidUserLogin = async (req, res, next) => {
     try {
         const reqData = req.body;
         const _ValidUserLogin = await UserMasterData.ValidLogin(reqData);
+        res.header("Access-Control-Allow-Origin", "*");
+        res.header("Access-Control-Allow-Methods", "GET , PUT , POST , DELETE");
+        res.header("Access-Control-Allow-Headers", "Content-Type, application/json");
         res.send(_ValidUserLogin);
     } catch (error) {
         res.status(400).send(error.message);
     }
 }
 
-const ValidUserNameCheck = async (req, res, next) =>{
+const ValidUserNameCheck = async (req, res, next) => {
     try {
         const reqData = req.body;
         const _ValidUserLogin = await UserMasterData.ValidUserNameCheck(reqData);
@@ -44,7 +47,7 @@ const ValidUserNameCheck = async (req, res, next) =>{
     }
 }
 
-const MembersHierarchy = async (req, res, next) =>{
+const MembersHierarchy = async (req, res, next) => {
     try {
         const reqData = req.body;
         const _MembersHierarchy = await UserMasterData.MembersHierarchy(reqData);
@@ -55,14 +58,14 @@ const MembersHierarchy = async (req, res, next) =>{
 }
 
 
-const UpdConfirmFlag = async (req, res, next) =>{
+const UpdConfirmFlag = async (req, res, next) => {
     try {
         const reqData = req.body;
         const ResData = await UserMasterData.UpdConfirmFlag(reqData);
         res.send(ResData);
     } catch (error) {
         res.status(400).send(error.message);
-        
+
     }
 }
 
