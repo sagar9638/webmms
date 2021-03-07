@@ -20,12 +20,12 @@ module.exports = {
         database: SQL_DATABASE,
         user: SQL_USER,
         password: SQL_PASSWORD,
-        port: parseInt(SQL_PORT,10)
-        // connectionTimeout: 150000,
-        // options: {
-        //     encrypt: sqlEncrypt,
-        //     enableArithAbort: true,
-        //     instanceName: 'sqlexpress'
-        // }
+        port: parseInt(SQL_PORT,10),
+        connectionTimeout: 150000,
+        options: {
+            encrypt: sqlEncrypt,
+            enableArithAbort: true,
+            instanceName: 'sqlexpress'
+        }
     }
 }
