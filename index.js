@@ -1,7 +1,7 @@
 'use strict';
 const express = require('express');
 const config = require('./config');
-//const cors = require('cors');
+const cors = require('cors');
 const bodyParser = require('body-parser');
 const UserMasterRoutes = require('./routes/UserMasterRoutes');
 const MenuMasterRoutes = require('./routes/MenuMasterRoutes');
@@ -11,7 +11,9 @@ const DesignationDetailRoutes = require('./routes/DesignationDetailRoutes');
 const app = express();
 
 //app.use(cors());
-//app.use(cors());
+app.use(cors(
+    {origin:'https://mmsnodejsapi.herokuapp.com/api/'}
+));
 
 app.use(function(req, res, next) {
     res.header("Access-Control-Allow-Origin", "*");
