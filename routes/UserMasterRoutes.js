@@ -8,7 +8,7 @@ const {getUsers,AddUser,ValidUserLogin,MembersHierarchy,ValidUserNameCheck,UpdCo
 
 router.post('/GetUser',getUsers);
 router.post('/AddUser',AddUser);
-router.get('/ValidLogin',ValidUserLogin);
+router.post('/ValidLogin',ValidUserLogin);
 router.post('/MembersHierarchy',MembersHierarchy);
 router.post('/ValidUserNameCheck',ValidUserNameCheck);
 router.post('/UpdConfirmFlag',UpdConfirmFlag);
