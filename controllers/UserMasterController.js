@@ -28,9 +28,6 @@ const ValidUserLogin = async (req, res, next) => {
     try {
         const reqData = req.body;
         const _ValidUserLogin = await UserMasterData.ValidLogin(reqData);
-        res.header("Access-Control-Allow-Origin", "*");
-        res.header("Access-Control-Allow-Methods", "GET , PUT , POST , DELETE");
-        res.header("Access-Control-Allow-Headers", "Content-Type, application/json");
         res.send(_ValidUserLogin);
     } catch (error) {
         res.status(400).send(error.message);
