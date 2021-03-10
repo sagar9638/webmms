@@ -11,7 +11,11 @@ SELECT [Id]
       ,[UpdDate]
       ,[TimeStamp]
       ,[UserName]
-      ,[Password]
+      ,[ConfirmFlag]
+      ,[ConfirmUser]
+      ,CONVERT(varchar,[ConfirmDate],105) as ConfirmDate
+      ,[DId]
+     -- ,[Password]
   FROM [dbo].[UserMaster]
 WHERE [UserName] = @p_UserName
   and [Password] = @p_Password
