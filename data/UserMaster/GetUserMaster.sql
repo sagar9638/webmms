@@ -33,10 +33,10 @@ SELECT [Id]
       ,[UpdDate]
       ,[TimeStamp]
       ,[UserName]
-      ,[Password]
       ,[ConfirmFlag]
       ,[ConfirmUser]
       ,CONVERT(varchar,[ConfirmDate],105) as ConfirmDate
+      ,[DId]
   FROM [dbo].[UserMaster] Where 1=1 ' + @p_Condition
 
   EXEC sp_executesql @Query
