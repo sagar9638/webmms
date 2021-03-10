@@ -1,7 +1,15 @@
 DECLARE @Query NVARCHAR(MAX);
 
 SET @Query = '
-				SELECT * 
+				SELECT 	 NextDName
+						,NextDId
+						,NextAchiveCount
+						,CurrDName
+						,CurrDId
+						,CurrAchiveCount
+						,PreDName
+						,PreDId
+						,PreAchiveCount
 				  FROM (
 						SELECT  ISNULL(LAG(t.DName) OVER (ORDER BY t.Ord desc),'') NextDName
 							   ,ISNULL(LAG(t.DId) OVER (ORDER BY t.Ord desc),-1) NextDId
