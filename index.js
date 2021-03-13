@@ -9,6 +9,8 @@ const DesignationMasterRoutes = require('./routes/DesignationMasterRoutes');
 const DesignationDetailRoutes = require('./routes/DesignationDetailRoutes');
 const UserProfileRoutes = require('./routes/UserProfileRoutes');
 const CommonRoutes = require('./routes/CommonRoutes');
+const MenuRightsMasterRoutes = require('./routes/MenuRightsMasterRoutes');
+const GalleryMasterRoutes = require('./routes/GalleryMasterRoutes');
 
 const app = express();
 
@@ -21,5 +23,7 @@ app.use('/api',DesignationMasterRoutes.routes);
 app.use('/api',DesignationDetailRoutes.routes);
 app.use('/api',UserProfileRoutes.routes);
 app.use('/api',CommonRoutes.routes);
+app.use('/api',MenuRightsMasterRoutes.routes);
+app.use('/api',GalleryMasterRoutes.routes);
 
 app.listen(config.port, ()=> console.log('Server is listening on http://localhost:' + config.port));
