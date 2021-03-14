@@ -26,7 +26,7 @@ const AddGalleryMaster = async (ReqData) => {
             .input('p_FileName', sql.NVarChar(120), ReqData[0].p_FileName)
             .input('p_FileType', sql.NVarChar(50), ReqData[0].p_FileType)
             .input('p_FileSize', sql.NVarChar(50), ReqData[0].p_FileSize)
-            .input('p_Path', sql.NVarChar(-1), ReqData[0].p_Path)
+            .input('p_Path', sql.NVarChar(1000), ReqData[0].p_Path)
             .input('p_Category', sql.NVarChar(100), ReqData[0].p_Category)
             .input('p_Ord', sql.Decimal(10,2), ReqData[0].p_Ord)
             .input('p_Remark', sql.NVarChar(100), ReqData[0].p_Remark)
