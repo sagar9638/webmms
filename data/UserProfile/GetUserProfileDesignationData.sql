@@ -21,6 +21,7 @@ SET @Query = '
 							   ,ISNULL(LEAD(t.DId) OVER (ORDER BY t.Ord desc),-1) PreDId
 							   ,ISNULL(LEAD(t.DAchiveCount) OVER (ORDER BY t.Ord desc),-1) PreAchiveCount
 						FROM DesignationMaster t
+					   WHERE IsActive = ''Y''
 					   ) AS Designation
 				 WHERE 1 = 1 '+ @p_Condition;  
 
