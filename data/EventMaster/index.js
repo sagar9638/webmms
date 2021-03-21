@@ -33,12 +33,13 @@ const AddEventMasterData = async (ReqData) => {
             .input('p_EUrl', sql.NVarChar(500), ReqData[0].p_EUrl)
             .input('p_EImagePath', sql.NVarChar(500), ReqData[0].p_EImagePath)
             .input('p_EDate', sql.Date, ReqData[0].p_EDate)
-            .input('p_ETime', sql.Time, ReqData[0].p_ETime)
+            .input('p_ETime', sql.NVarChar(50), ReqData[0].p_ETime)
             .input('p_IsActive', sql.VarChar, ReqData[0].p_IsActive)
-            .input('p_Ord', sql.Decimal(18,2), ReqData[0].p_IsActive)
+            .input('p_Ord', sql.Decimal(18,2), ReqData[0].p_Ord)
             .input('p_Remark', sql.NVarChar(200), ReqData[0].p_Remark)
             .input('p_EntDate', sql.Date, ReqData[0].p_EntDate)
             .input('p_EntUser', sql.NVarChar(50), ReqData[0].p_EntUser)
+            .input('p_EDisplayFlag', sql.NChar(10), ReqData[0].p_EDisplayFlag)
             .query(sqlQueries.AddEventMasterData);
 
         let OutObject = {
@@ -67,12 +68,13 @@ const UpdEventMasterData = async (ReqData) => {
             .input('p_EUrl', sql.NVarChar(500), ReqData[0].p_EUrl)
             .input('p_EImagePath', sql.NVarChar(500), ReqData[0].p_EImagePath)
             .input('p_EDate', sql.Date, ReqData[0].p_EDate)
-            .input('p_ETime', sql.Time, ReqData[0].p_ETime)
+            .input('p_ETime', sql.NVarChar(50), ReqData[0].p_ETime)
             .input('p_IsActive', sql.VarChar, ReqData[0].p_IsActive)
-            .input('p_Ord', sql.Decimal(18,2), ReqData[0].p_IsActive)
+            .input('p_Ord', sql.Decimal(18,2), ReqData[0].p_Ord)
             .input('p_Remark', sql.NVarChar(200), ReqData[0].p_Remark)
             .input('p_UpdUser', sql.NVarChar(50), ReqData[0].p_UpdUser)
             .input('p_UpdDate', sql.Date, ReqData[0].p_UpdDate)
+            .input('p_EDisplayFlag', sql.NChar(10), ReqData[0].p_EDisplayFlag)
             .query(sqlQueries.UpdEventMasterData);
 
         let OutObject = {
