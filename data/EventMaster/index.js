@@ -29,7 +29,7 @@ const AddEventMasterData = async (ReqData) => {
             .input('p_EStatus', sql.NVarChar(50), ReqData[0].p_EStatus)
             .input('p_EName', sql.NVarChar(50), ReqData[0].p_EName)
             .input('p_EVenue', sql.NVarChar(100), ReqData[0].p_EVenue)
-            .input('p_EDetail', sql.NVarChar(-1), ReqData[0].p_EDetail)
+            .input('p_EDetail', sql.NVarChar(sql.MAX), ReqData[0].p_EDetail)
             .input('p_EUrl', sql.NVarChar(500), ReqData[0].p_EUrl)
             .input('p_EImagePath', sql.NVarChar(500), ReqData[0].p_EImagePath)
             .input('p_EDate', sql.Date, ReqData[0].p_EDate)
@@ -39,7 +39,7 @@ const AddEventMasterData = async (ReqData) => {
             .input('p_Remark', sql.NVarChar(200), ReqData[0].p_Remark)
             .input('p_EntDate', sql.Date, ReqData[0].p_EntDate)
             .input('p_EntUser', sql.NVarChar(50), ReqData[0].p_EntUser)
-            .query(sqlQueries.AddDesignationMaster);
+            .query(sqlQueries.AddEventMasterData);
 
         let OutObject = {
             flag: true,
@@ -58,12 +58,19 @@ const UpdEventMasterData = async (ReqData) => {
         let pool = await sql.connect(config.sql);
         const sqlQueries = await utils.loadSqlQueries('EventMaster');
         const UpdData = await pool.request()
-            .input('p_DId', sql.NVarChar(80), ReqData[0].p_DId)
-            .input('p_DName', sql.NVarChar(80), ReqData[0].p_DName)
-            .input('p_DShortName', sql.NVarChar(30), ReqData[0].p_DShortName)
-            .input('p_DAchiveCount', sql.Int, ReqData[0].p_DAchiveCount)
-            .input('p_Remark', sql.NVarChar(100), ReqData[0].p_Remark)
+            .input('p_Id', sql.NVarChar(80), ReqData[0].p_Id)
+            .input('p_ECategory', sql.NVarChar(50), ReqData[0].p_ECategory)
+            .input('p_EStatus', sql.NVarChar(50), ReqData[0].p_EStatus)
+            .input('p_EName', sql.NVarChar(50), ReqData[0].p_EName)
+            .input('p_EVenue', sql.NVarChar(100), ReqData[0].p_EVenue)
+            .input('p_EDetail', sql.NVarChar(sql.MAX), ReqData[0].p_EDetail)
+            .input('p_EUrl', sql.NVarChar(500), ReqData[0].p_EUrl)
+            .input('p_EImagePath', sql.NVarChar(500), ReqData[0].p_EImagePath)
+            .input('p_EDate', sql.Date, ReqData[0].p_EDate)
+            .input('p_ETime', sql.Time, ReqData[0].p_ETime)
             .input('p_IsActive', sql.VarChar, ReqData[0].p_IsActive)
+            .input('p_Ord', sql.Decimal(18,2), ReqData[0].p_IsActive)
+            .input('p_Remark', sql.NVarChar(200), ReqData[0].p_Remark)
             .input('p_UpdUser', sql.NVarChar(50), ReqData[0].p_UpdUser)
             .input('p_UpdDate', sql.Date, ReqData[0].p_UpdDate)
             .query(sqlQueries.UpdEventMasterData);

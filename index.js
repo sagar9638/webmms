@@ -3,6 +3,7 @@ const express = require('express');
 const config = require('./config');
 const cors = require('cors');
 const bodyParser = require('body-parser');
+
 const UserMasterRoutes = require('./routes/UserMasterRoutes');
 const MenuMasterRoutes = require('./routes/MenuMasterRoutes');
 const DesignationMasterRoutes = require('./routes/DesignationMasterRoutes');
@@ -11,6 +12,7 @@ const UserProfileRoutes = require('./routes/UserProfileRoutes');
 const CommonRoutes = require('./routes/CommonRoutes');
 const MenuRightsMasterRoutes = require('./routes/MenuRightsMasterRoutes');
 const GalleryMasterRoutes = require('./routes/GalleryMasterRoutes');
+const EventMasterRoutes = require('./routes/EventMasterRoutes');
 
 const app = express();
 
@@ -25,5 +27,6 @@ app.use('/api',UserProfileRoutes.routes);
 app.use('/api',CommonRoutes.routes);
 app.use('/api',MenuRightsMasterRoutes.routes);
 app.use('/api',GalleryMasterRoutes.routes);
+app.use('/api',EventMasterRoutes.routes);
 
 app.listen(config.port, ()=> console.log('Server is listening on http://localhost:' + config.port));
