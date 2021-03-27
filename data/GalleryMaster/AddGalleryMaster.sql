@@ -4,6 +4,7 @@ INSERT INTO [dbo].[GalleryMaster]
            ,[FileType]
            ,[FileSize]
            ,[Path]
+           ,[SrcPath]
            ,[Category]
            ,[Ord]
            ,[Remark]
@@ -17,6 +18,7 @@ INSERT INTO [dbo].[GalleryMaster]
 			,@p_FileType
 			,@p_FileSize
 			,@p_Path
+                  ,@p_SrcPath
 			,@p_Category
 			,@p_Ord
 			,@p_Remark
