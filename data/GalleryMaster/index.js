@@ -28,6 +28,8 @@ const AddGalleryMaster = async (ReqData) => {
             .input('p_FileSize', sql.NVarChar(50), ReqData[0].p_FileSize)
             .input('p_Path', sql.NVarChar(1000), ReqData[0].p_Path)
             .input('p_SrcPath', sql.NVarChar(sql.MAX), ReqData[0].p_SrcPath)
+            .input('p_PageName', sql.NVarChar(100), ReqData[0].p_PageName)
+            .input('p_PageType', sql.NVarChar(100), ReqData[0].p_PageType)
             .input('p_Category', sql.NVarChar(100), ReqData[0].p_Category)
             .input('p_Ord', sql.Decimal(10,2), ReqData[0].p_Ord)
             .input('p_Remark', sql.NVarChar(100), ReqData[0].p_Remark)

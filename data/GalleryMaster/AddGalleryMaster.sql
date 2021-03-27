@@ -5,6 +5,8 @@ INSERT INTO [dbo].[GalleryMaster]
            ,[FileSize]
            ,[Path]
            ,[SrcPath]
+           ,[PageName]
+           ,[PageType]
            ,[Category]
            ,[Ord]
            ,[Remark]
@@ -19,6 +21,8 @@ INSERT INTO [dbo].[GalleryMaster]
 			,@p_FileSize
 			,@p_Path
                   ,@p_SrcPath
+                  ,@p_PageName
+                  ,@p_PageType
 			,@p_Category
 			,@p_Ord
 			,@p_Remark
