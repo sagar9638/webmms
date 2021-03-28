@@ -33,6 +33,6 @@ INSERT INTO [dbo].[EventMaster]
            ,GETDATE()
            ,@p_EntUser
            ,@p_EDisplayFlag
-		   )
+		)
 
 
