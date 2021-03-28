@@ -167,6 +167,7 @@ const UpdConfirmFlag = async (ReqData) => {
         const sqlQueries = await utils.loadSqlQueries('UserMaster');
         const UpdData = await pool.request()
             .input('p_ConfirmFlag', sql.VarChar, ReqData[0].p_ConfirmFlag)
+            .input('p_ConfirmStatusId', sql.VarChar, ReqData[0].p_ConfirmStatusId)
             .input('p_ConfirmUser', sql.VarChar, ReqData[0].p_ConfirmUser)
             .input('p_Id', sql.Int, ReqData[0].p_Id)
             .input('RefId', sql.NVarChar(50), ReqData[0].p_RefId)

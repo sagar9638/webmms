@@ -2,6 +2,7 @@ DECLARE @DId NVARCHAR(50),@PERENTID NVARCHAR(50),@ConnectUserCount INT, @ADId NV
 
 UPDATE UserMaster SET
 ConfirmFlag = @p_ConfirmFlag,
+ConfirmStatusId = @p_ConfirmStatusId,
 ConfirmUser = @p_ConfirmUser,
 ConfirmDate = GETDATE()
 WHERE Id = @p_Id 
