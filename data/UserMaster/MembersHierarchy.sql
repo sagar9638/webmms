@@ -5,7 +5,8 @@ select
       ,a.RefId
       ,a.perentId
       ,a.Name as name
-      ,a.City as title
+      ,a.City as city
+	,(select d.DName from DesignationMaster d where d.DId = a.DId) as title
       ,CONVERT(varchar,a.DOB,105) as Dob
       ,a.MobileNo
       ,a.EmailId as email
