@@ -37,11 +37,12 @@ SELECT [Id]
       ,[ConfirmUser]
       ,CONVERT(varchar,[ConfirmDate],105) as ConfirmDate
       ,[DId]
+      ,(select d.DName from DesignationMaster d where d.DId = U.DId) as DName
       ,[ConnectUserCount] 
       ,[ConfirmStatusId]
       ,[UserProfileUrl]
       ,[UserProtfilePath]
-  FROM [dbo].[UserMaster] Where 1=1 ' + @p_Condition
+  FROM [dbo].[UserMaster] U Where 1=1 ' + @p_Condition
 
   EXEC sp_executesql @Query
 
