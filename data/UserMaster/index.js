@@ -10,8 +10,8 @@ const getUsers = async (p_Condition) => {
         let pool = await sql.connect(config.sql);
         const sqlQueries = await utils.loadSqlQueries('UserMaster');
         const list = await pool.request()
-        .input('p_Condition', sql.NVarChar(sql.MAX), p_Condition)
-        .query(sqlQueries.GetUserMaster);
+            .input('p_Condition', sql.NVarChar(sql.MAX), p_Condition)
+            .query(sqlQueries.GetUserMaster);
         return list.recordset;
     } catch (error) {
         return error.message;
@@ -184,11 +184,38 @@ const UpdConfirmFlag = async (ReqData) => {
     }
 }
 
+const UpdateUserDetail = async (ReqData) => {
+    try {
+        let pool = await sql.connect(config.sql);
+        const sqlQueries = await utils.loadSqlQueries('UserMaster');
+        const UpdData = await pool.request()
+            .input('p_Id', sql.Int, ReqData[0].p_Id)
+            .input('p_Name', sql.VarChar, ReqData[0].p_Name)
+            .input('p_City', sql.VarChar, ReqData[0].p_City)
+            .input('p_MobileNo', sql.VarChar, ReqData[0].p_MobileNo)
+            .input('p_EmailId', sql.VarChar, ReqData[0].p_EmailId)
+            .input('p_UserProfileUrl', sql.NVarChar(sql.MAX), ReqData[0].p_UserProfileUrl)
+            .input('p_UserProtfilePath', sql.NVarChar(300), ReqData[0].p_UserProtfilePath)
+            .query(sqlQueries.UpdateUserDetail);
+
+        let OutObject = {
+            flag: true,
+            mesg: "Update User Successfully..!!",
+            recordset: UpdData.recordset
+        }
+        return OutObject;
+    } catch (error) {
+        return error.message;
+    }
+}
+
+
 module.exports = {
     getUsers,
     AddUser,
     ValidLogin,
     MembersHierarchy,
     ValidUserNameCheck,
-    UpdConfirmFlag
+    UpdConfirmFlag,
+    UpdateUserDetail
 }
