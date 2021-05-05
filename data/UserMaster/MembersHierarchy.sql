@@ -13,7 +13,11 @@ select
       ,a.EntUser
       ,CONVERT(varchar,a.EntDate,105) as EntDate
       ,a.UserName
-      ,'https://cdn.balkan.app/shared/1.jpg' as img
+      ,CASE
+		  WHEN [UserProfileUrl] IS NOT NULL THEN [UserProfileUrl]
+		  ELSE 'https://cdn.balkan.app/shared/1.jpg'
+	 END as img
+      --,'https://cdn.balkan.app/shared/1.jpg' as img
       ,a.ConfirmFlag
       ,a.ConfirmUser
       ,a.ConfirmDate
