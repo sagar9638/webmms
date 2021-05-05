@@ -23,6 +23,11 @@ SET @Query = '
 					  ,[TimeStamp]
 					  ,[UserName]
 					  ,[Remark]
+					  ,[DId]
+					  ,[ConnectUserCount]
+					  ,[ConfirmStatusId]
+					  ,[UserProfileUrl]
+					  ,[UserProtfilePath]
 				FROM   (
 						SELECT LEFT(RefId, LEN(RefId) - CHARINDEX(''.'', REVERSE(RefId))) PerentId,*  
 						  FROM [dbo].[UserMaster]
