@@ -20,7 +20,7 @@ module.exports = {
         database: SQL_DATABASE,
         user: SQL_USER,
         password: SQL_PASSWORD,
-        port: parseInt(SQL_PORT,10),
+        //port: parseInt(SQL_PORT,10),
         connectionTimeout: 150000,
         options: {
             //encrypt: SQL_ENCRYPT,
