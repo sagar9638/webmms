@@ -57,6 +57,7 @@ const UpdMenuData = async (ReqData) => {
             .input('p_MTitle', sql.NVarChar(80), ReqData[0].p_MTitle)
             .input('p_MName', sql.NVarChar(80), ReqData[0].p_MName)
             .input('p_MPath', sql.NVarChar(120), ReqData[0].p_MPath)
+            .input('p_Ord', sql.Decimal(18,3), ReqData[0].p_Ord)
             .input('p_MIcon', sql.NVarChar(50), ReqData[0].p_MIcon)
             .input('p_Remark', sql.NVarChar(100), ReqData[0].p_Remark)
             .input('p_IsActive', sql.NVarChar(6), ReqData[0].p_IsActive)

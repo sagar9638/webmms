@@ -4,6 +4,7 @@ UPDATE [dbo].[MenuMaster]
       ,[MTitle] = @p_MTitle
       ,[MName] = @p_MName
       ,[MPath] = @p_MPath
+      ,[Ord] = @p_Ord
       ,[MIcon] = @p_MIcon
       ,[Remark] = @p_Remark
       ,[IsActive] = @p_IsActive

@@ -14,6 +14,8 @@ const MenuRightsMasterRoutes = require('./routes/MenuRightsMasterRoutes');
 const GalleryMasterRoutes = require('./routes/GalleryMasterRoutes');
 const EventMasterRoutes = require('./routes/EventMasterRoutes');
 const CategoryMasterRoutes = require('./routes/CategoryMasterRoutes');
+const NewsMasterRouter = require('./routes/NewsMasterRouter');
+
 
 const app = express();
 
@@ -30,5 +32,6 @@ app.use('/api',MenuRightsMasterRoutes.routes);
 app.use('/api',GalleryMasterRoutes.routes);
 app.use('/api',EventMasterRoutes.routes);
 app.use('/api',CategoryMasterRoutes.routes);
+app.use('/api',NewsMasterRouter.routes);
 
 app.listen(config.port, ()=> console.log('Server is listening on http://localhost:' + config.port));
