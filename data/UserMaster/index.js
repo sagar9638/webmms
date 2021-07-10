@@ -52,6 +52,9 @@ const AddUser = async (UserData) => {
             .input('EntUser', sql.NVarChar(50), UserData[0].EntUser)
             .input('UserName', sql.NVarChar(50), UserData[0].UserName)
             .input('Password', sql.NVarChar(20), UserData[0].Password)
+            .input('CDoing', sql.NVarChar(200), UserData[0].CDoing)
+            .input('Dream', sql.NVarChar(200), UserData[0].Dream)
+            .input('PId', sql.NVarChar(200), UserData[0].PId)
             .query(sqlQueries.AddUser);
         //transaction.commit();
 

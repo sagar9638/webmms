@@ -18,6 +18,9 @@ INSERT INTO [dbo].[UserMaster]
            ,[ConfirmFlag]
            ,[DId]
            ,[ConnectUserCount]
+           ,[CDoing]
+           ,[Dream]
+           ,[PId]
            )
      VALUES
            (
@@ -34,6 +37,9 @@ INSERT INTO [dbo].[UserMaster]
            ,'N'
            ,@DId
            ,0
+           ,@CDoing
+           ,@Dream
+           ,@PId
            );
 
 SELECT SCOPE_IDENTITY() AS USERID
