@@ -42,6 +42,9 @@ SELECT [Id]
       ,[ConfirmStatusId]
       ,[UserProfileUrl]
       ,[UserProtfilePath]
+      ,[CDoing]
+      ,[Dream]
+      ,[PId]
   FROM [dbo].[UserMaster] U Where 1=1 ' + @p_Condition
 
   EXEC sp_executesql @Query
