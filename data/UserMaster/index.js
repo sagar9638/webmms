@@ -212,6 +212,26 @@ const UpdateUserDetail = async (ReqData) => {
     }
 }
 
+const DeleteUser = async (ReqData) => {
+    try {
+        let pool = await sql.connect(config.sql);
+        const sqlQueries = await utils.loadSqlQueries('UserMaster');
+        const DeleteData = await pool.request()
+            .input('p_Id', sql.Int, ReqData[0].p_Id)
+            .query(sqlQueries.DeleteUser);
+
+        let OutObject = {
+            flag: true,
+            mesg: "Delete Successfully..!!",
+            recordset: DeleteData.recordset
+        }
+        return OutObject;
+    } catch (error) {
+        return error.message;
+    }
+}
+
+
 
 module.exports = {
     getUsers,
@@ -220,5 +240,6 @@ module.exports = {
     MembersHierarchy,
     ValidUserNameCheck,
     UpdConfirmFlag,
-    UpdateUserDetail
+    UpdateUserDetail,
+    DeleteUser
 }

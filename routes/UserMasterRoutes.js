@@ -4,7 +4,7 @@ const express = require('express');
 const UserMasterController = require('../controllers/UserMasterController');
 const router = express.Router();
 
-const {getUsers,AddUser,ValidUserLogin,MembersHierarchy,ValidUserNameCheck,UpdConfirmFlag,UpdateUserDetail} = UserMasterController;
+const {getUsers,AddUser,ValidUserLogin,MembersHierarchy,ValidUserNameCheck,UpdConfirmFlag,UpdateUserDetail,DeleteUser} = UserMasterController;
 
 router.post('/GetUser',getUsers);
 router.post('/AddUser',AddUser);
@@ -13,6 +13,7 @@ router.post('/MembersHierarchy',MembersHierarchy);
 router.post('/ValidUserNameCheck',ValidUserNameCheck);
 router.post('/UpdConfirmFlag',UpdConfirmFlag);
 router.post('/UpdateUserDetail',UpdateUserDetail);
+router.post('/DeleteUser',DeleteUser);
 
 module.exports = {
     routes: router
