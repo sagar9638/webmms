@@ -187,6 +187,26 @@ const UpdConfirmFlag = async (ReqData) => {
     }
 }
 
+const UpdUserPackageID = async (ReqData) => {
+    try {
+        let pool = await sql.connect(config.sql);
+        const sqlQueries = await utils.loadSqlQueries('UserMaster');
+        const UpdData = await pool.request()
+            .input('p_Id', sql.Int, ReqData[0].p_Id)
+            .input('p_PId', sql.NVarChar(50), ReqData[0].p_PId)
+            .query(sqlQueries.UpdUserPackageID);
+
+        let OutObject = {
+            flag: true,
+            mesg: "Update User Package Id Successfully..!!",
+            recordset: UpdData.recordset
+        }
+        return OutObject;
+    } catch (error) {
+        return error.message;
+    }
+}
+
 const UpdateUserDetail = async (ReqData) => {
     try {
         let pool = await sql.connect(config.sql);
@@ -240,6 +260,7 @@ module.exports = {
     MembersHierarchy,
     ValidUserNameCheck,
     UpdConfirmFlag,
+    UpdUserPackageID,
     UpdateUserDetail,
     DeleteUser
 }

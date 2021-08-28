@@ -66,6 +66,18 @@ const UpdConfirmFlag = async (req, res, next) => {
     }
 }
 
+const UpdUserPackageID = async (req, res, next) => {
+    try {
+        const reqData = req.body;
+        const ResData = await UserMasterData.UpdUserPackageID(reqData);
+        res.send(ResData);
+    } catch (error) {
+        res.status(400).send(error.message);
+
+    }
+}
+
+
 const UpdateUserDetail = async (req, res, next) => {
     try {
         const reqData = req.body;
@@ -115,6 +127,7 @@ module.exports = {
     MembersHierarchy,
     ValidUserNameCheck,
     UpdConfirmFlag,
+    UpdUserPackageID,
     UpdateUserDetail,
     DeleteUser
 }

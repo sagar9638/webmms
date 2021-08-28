@@ -28,6 +28,8 @@ SET @Query = '
 					  ,[ConfirmStatusId]
 					  ,[UserProfileUrl]
 					  ,[UserProtfilePath]
+					  ,[CDoing]
+					  ,[Dream]
 				FROM   (
 						SELECT LEFT(RefId, LEN(RefId) - CHARINDEX(''.'', REVERSE(RefId))) PerentId,*  
 						  FROM [dbo].[UserMaster]

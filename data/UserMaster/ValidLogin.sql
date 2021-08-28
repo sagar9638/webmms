@@ -15,6 +15,7 @@ SELECT [Id]
       ,[ConfirmUser]
       ,CONVERT(varchar,[ConfirmDate],105) as ConfirmDate
       ,[DId]
+      ,[PId]
      -- ,[Password]
   FROM [dbo].[UserMaster]
 WHERE [UserName] = @p_UserName

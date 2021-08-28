@@ -3,6 +3,7 @@ INSERT INTO [dbo].[MenuRights]
            ([UserId]
            ,[DId]
            ,[MId]
+           ,[PId]
            ,[Ord]
            ,[Remark]
            ,[EntUser]
@@ -13,6 +14,7 @@ INSERT INTO [dbo].[MenuRights]
 			@p_UserId
 			,@p_DId
 			,@p_MId
+                  ,@p_PId
 			,@p_Ord
 			,@p_Remark
 			,@p_EntUser
