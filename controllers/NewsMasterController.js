@@ -13,6 +13,42 @@ const GetNewsMasterData = async (req, res, next) =>{
     }
 }
 
+const AddNewsMasterData = async (req, res, next) =>{
+    try {
+        const reqData = req.body;
+        const ResData = await NewsMasterData.AddNewsMasterData(reqData);
+        res.send(ResData);
+    } catch (error) {
+        res.status(400).send(error.message);
+        
+    }
+}
+
+const UpdNewsMasterData = async (req, res, next) =>{
+    try {
+        const reqData = req.body;
+        const ResData = await NewsMasterData.UpdNewsMasterData(reqData);
+        res.send(ResData);
+    } catch (error) {
+        res.status(400).send(error.message);
+        
+    }
+}
+
+const DeleteNewsMasterData = async (req, res, next) =>{
+    try {
+        const reqData = req.body;
+        const ResData = await NewsMasterData.DeleteNewsMasterData(reqData);
+        res.send(ResData);
+    } catch (error) {
+        res.status(400).send(error.message);
+    }
+}
+
+
 module.exports = {
-    GetNewsMasterData
+    GetNewsMasterData,
+    AddNewsMasterData,
+    UpdNewsMasterData,
+    DeleteNewsMasterData
 }
