@@ -5,6 +5,9 @@ INSERT INTO [dbo].[NewsMaster]
            ,[SubTitle]
            ,[Image]
            ,[Description]
+           ,[ShortDescription]
+           ,[Category]
+           ,[NewsType]
            ,[Ord]
            ,[IsActive]
            ,[EntDate]
@@ -16,6 +19,9 @@ INSERT INTO [dbo].[NewsMaster]
            ,@p_SubTitle
            ,@p_Image
            ,@p_Description
+           ,@p_ShortDescription
+           ,@p_Category
+           ,@p_NewsType
            ,@p_Ord
            ,@p_IsActive
            ,GETDATE()

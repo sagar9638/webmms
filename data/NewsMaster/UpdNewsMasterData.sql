@@ -4,6 +4,9 @@ UPDATE [dbo].[NewsMaster]
       ,[SubTitle] = @p_SubTitle
       ,[Image] = @p_Image
       ,[Description] = @p_Description
+      ,[ShortDescription] = @p_ShortDescription
+      ,[Category] = @p_Category
+      ,[NewsType] = @p_NewsType
       ,[Ord] = @p_Ord
       ,[IsActive] = @p_IsActive
       ,[UpdDate] = GETDATE()

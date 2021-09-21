@@ -28,6 +28,9 @@ const AddNewsMasterData = async (ReqData) => {
         .input('p_SubTitle', sql.NVarChar(300), ReqData[0].p_SubTitle)
         .input('p_Image', sql.NVarChar(sql.MAX), ReqData[0].p_Image)
         .input('p_Description', sql.NVarChar(sql.MAX), ReqData[0].p_Description)
+        .input('p_ShortDescription', sql.NVarChar(400), ReqData[0].p_ShortDescription)
+        .input('p_Category', sql.NVarChar(100), ReqData[0].p_Category)
+        .input('p_NewsType', sql.NVarChar(100), ReqData[0].p_NewsType)
         .input('p_Ord', sql.Decimal(10,2), ReqData[0].p_Ord)
         .input('p_IsActive', sql.NVarChar(10), ReqData[0].p_IsActive)
         .input('p_EntDate', sql.Date, ReqData[0].p_EntDate)
@@ -50,12 +53,16 @@ const UpdNewsMasterData = async (ReqData) => {
     try {
         let pool = await sql.connect(config.sql);
         const sqlQueries = await utils.loadSqlQueries('NewsMaster');
+        console.log(ReqData);
         const UpdData = await pool.request()
         .input('p_Id', sql.Int, ReqData[0].p_Id)
         .input('p_Title', sql.NVarChar(500), ReqData[0].p_Title)
         .input('p_SubTitle', sql.NVarChar(300), ReqData[0].p_SubTitle)
         .input('p_Image', sql.NVarChar(sql.MAX), ReqData[0].p_Image)
         .input('p_Description', sql.NVarChar(sql.MAX), ReqData[0].p_Description)
+        .input('p_ShortDescription', sql.NVarChar(400), ReqData[0].p_ShortDescription)
+        .input('p_Category', sql.NVarChar(100), ReqData[0].p_Category)
+        .input('p_NewsType', sql.NVarChar(100), ReqData[0].p_NewsType)
         .input('p_Ord', sql.Decimal(10,2), ReqData[0].p_Ord)
         .input('p_IsActive', sql.NVarChar(10), ReqData[0].p_IsActive)
         .input('p_UpdDate', sql.Date, ReqData[0].p_UpdDate)
